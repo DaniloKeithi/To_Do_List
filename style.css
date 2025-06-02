@@ -1,0 +1,44 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-image: url(img/simple-clean-background-8g9017acqfddycrl.jpg);
+  background-size: cover;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;    
+  background-color: #c9c9c9;
+  padding: 10px 0 0 0;
+  
+}
+
+#taskInput {
+  width: 70%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 8px 12px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #f4f4f4;
+  margin: 5px 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
