@@ -42,3 +42,20 @@ li {
   color: #888;
 }
 
+small {
+  display: block;
+  font-size: 0.8em;
+  color: #666;
+  margin-top: 3px;
+}
+
+li span {
+  color: #333;
+}
+li [data-category="trabalho"] {
+  color: #d35400;
+}
+li [data-category="estudos"] {
+  color: #2980b9;
+}
+

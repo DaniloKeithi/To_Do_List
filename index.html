@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>To do list</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>Minha Lista</h1>
-        <input type="text" id="taskInput" placeholder="Digite uma Tarefa...">
-        <button onclick="addTask()">Adicionar</button>
-        <ul id="taskList"></ul>
+      <h1>Minha Lista</h1>
+      <input type="text" id="taskInput" placeholder="Digite uma Tarefa..." />
+      <select id="taskCategory">
+        <option value="pessoal">Pessoal</option>
+        <option value="trabalho">Trabalho</option>
+        <option value="estudos">Estudos</option>
+      </select>
+      <button onclick="addTask()">Adicionar</button>
+      <ul id="taskList"></ul>
     </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
