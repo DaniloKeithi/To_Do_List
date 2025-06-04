@@ -13,31 +13,21 @@ function saveTasks() {
 
 // Cria a função para ADICIONAR uma tarefa
 function addTask() {
-  //Pega o valor do input
-  const input = document.getElementById("taskInput"); //cria constante input dentro dessa função
-  const taskText = input.value.trim(); //input.value retorna exatamente o que o usuário escreve. O "trim" foi
-  //adicionado para remover espaços em branco do texto do inicio e final da string ex: "  fazer café  " retorna "fazer café"
-  //sem espaços extras. Ele também é responsavel por fazer com que o campo de texto não venha vazio
-  const category = document.getElementById("taskCategory").value;
-
-  // 2. Verifica se não está vazio e manda um aviso ao usuário
-  if (!taskText) {
-    return;
-  }
-
-  //Adiciona ao array "tasks"
+  const input = document.getElementById('taskInput');
+  const taskText = input.value.trim();
+  const category = document.getElementById('taskCategory').value;
+  
+  if (!taskText) return;
+  
   tasks.push({
-    id: Date.now(), // Cria um ID único (usando timestamp)
+    id: Date.now(),
     text: taskText,
-    completed: false, // Tarefa começa não concluída
-    createdAT: new Date(), // Adiciona a data/hora atual
-    category: document.getElementById("taskCategory").value,
+    completed: false,
+    createdAt: new Date().toISOString(), // Alteração importante aqui!
+    category: category
   });
-
-  //Limpa o input
-  input.value = "";
-
-  //Atualiza a tela
+  
+  input.value = '';
   updateUI();
   saveTasks();
 }
@@ -51,7 +41,7 @@ function updateUI() {
       <span class="${task.completed ? 'completed' : ''}" data-category="${task.category}">
         [${task.category.toUpperCase()}] ${task.text}
       </span>
-      <small>Criada em: ${new Date(task.createdAt).toLocaleString()}</small>
+      <small>Criada em: ${formatDate(task.createdAt)}</small>
       <button onclick="toggleComplete(${task.id})">✓</button>
       <button onclick="deleteTask(${task.id})">✕</button>
     `;
@@ -76,4 +66,15 @@ function deleteTask(taskId) {
   //Atualiza a tela
   updateUI();
   saveTasks();
+}
+
+function formatDate(dateString) {
+  const options = {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  };
+  return new Date(dateString).toLocaleDateString('pt-BR', options);
 }
